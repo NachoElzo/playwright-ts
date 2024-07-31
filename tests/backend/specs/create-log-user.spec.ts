@@ -1,6 +1,7 @@
 import { test } from "@playwright/test";
 import random from "../../../helpers/random.ts";
 import { userCreation, deleteAccount, logUser } from "../utils/users-setup.ts";
+import { createArticle } from "../utils/articles-setup.ts";
 
 test.describe("Create, logs and delete user", () => {
   // Defining variables in the describe will allow you to read globally
@@ -25,6 +26,8 @@ test.describe("Create, logs and delete user", () => {
     await logUser(page, localStorageKey, token);
     await page.goto("/");
     await page.waitForSelector("[class='navbar-brand']");
+    const newArticle = await createArticle("article1", token);
+    console.log(`Your new article id: ${newArticle}`);
   });
 
   test.afterAll("Tear-down delete User", async () => {

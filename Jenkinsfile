@@ -81,6 +81,7 @@ pipeline {
                         sh "ENVIRONMENT=${params.ENVIRONMENT} npx playwright test ${params.SPECS}/specs --project ${params.BROWSER} ${params.REPORTER}"
                     }
                     // Script generated in pipeline syntax section to publish Playwright report
+                    // Install publishHTML pluggin in jenkins
                     // Remember to unlock Jenkins privacy policy to open external files in Jenkins options - script console
                     post {
                         always {

@@ -4,7 +4,7 @@
   "description": "## Pre-requirement",
   "main": "index.js",
   "scripts": {
-    "ui-api-chromium": "ENVIRONMENT=api  npx playwright test /backend/specs/ --ui --project chromium",
+    "api-backend-chromium": "ENVIRONMENT=api  npx playwright test /backend/specs/ --ui --project chromium",
     "ui-front-chromium": "ENVIRONMENT=ui  npx playwright test /frontend/specs/ --ui --project chromium"
   },
   "keywords": [],
