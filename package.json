@@ -1,0 +1,20 @@
+{
+  "name": "ts-playwright",
+  "version": "1.0.0",
+  "description": "## Pre-requirement",
+  "main": "index.js",
+  "scripts": {
+    "ui-api-chromium": "ENVIRONMENT=api  npx playwright test /backend/specs/ --ui --project chromium",
+    "ui-front-chromium": "ENVIRONMENT=ui  npx playwright test /frontend/specs/ --ui --project chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.45.2",
+    "@types/node": "^20.14.11"
+  },
+  "dependencies": {
+    "uuid": "^10.0.0"
+  }
+}
