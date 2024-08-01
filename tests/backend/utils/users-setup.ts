@@ -1,6 +1,7 @@
 import apiUsers from "../requests/users.js";
 import { expect, APIResponse } from "@playwright/test";
 import { CreateUserPayload } from "../requests/users.js";
+import { users } from "../data/users.data.js";
 
 export async function userCreation(
   email: string,
@@ -29,10 +30,25 @@ export async function deleteAccount(userId: string, token: string) {
   const request: APIResponse = await apiUsers.deleteUser(userId, auth);
 }
 
-export async function logUser(page, localStorageKey: string, token: string) {
+export async function logNewUser(page, localStorageKey: string, token: string) {
   await page.addInitScript((token) => {
     window.localStorage.setItem(localStorageKey, token);
   }, token);
 }
+export async function logUser(userKey: number): Promise<string> {
+  const user = users[userKey];
+  if (!user) {
+    throw new Error(`User with key ${userKey} does not exist.`);
+  }
+  const body = {
+    user: {
+      email: user.email,
+      password: user.password,
+    },
+  };
 
-export default { userCreation, deleteAccount, logUser };
+  const response = await apiUsers.login(body);
+  return response.user.token;
+}
+
+export default { userCreation, deleteAccount, logNewUser, logUser };

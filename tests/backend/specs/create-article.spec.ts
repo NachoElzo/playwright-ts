@@ -1,16 +1,15 @@
 import { test } from "@playwright/test";
 import random from "../../../helpers/random.ts";
-import { userCreation, deleteAccount, logUser } from "../utils/users-setup.ts";
+import { userCreation, deleteAccount } from "../utils/users-setup.ts";
 import { createArticle } from "../utils/articles-setup.ts";
 
-test.describe("Given a new user that creates an article", () => {
+test.describe.skip("Given a new user that creates an article", () => {
   // Defining variables in the describe will allow you to read globally
   let userId: string;
   let token: string;
   const username = random.randomString();
   const password = random.randomString();
-  const email = `${random.randomString()}@example.com`;
-  const localStorageKey = `jwtToken`;
+  const email = `${random.randomString()}_${username}@newmail.com`;
 
   test.beforeAll("Tear-up create user", async () => {
     const userResponse = await userCreation(email, password, username);

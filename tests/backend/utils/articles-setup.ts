@@ -7,6 +7,8 @@ export async function createArticle(
   articleKey: "article1" | "article2" | "article3" | "article4",
   token: string
 ): Promise<string> {
+  //gets the firts article from the article array as reference
+  //select as parameter the articleKey
   const article = articles[0][articleKey];
 
   const payload: CreateUserPayload = {

@@ -23,13 +23,34 @@ export interface LogUserPayload {
     password: string;
   };
 }
-async function deleteUser(userId: string, token: string) {
+async function deleteUser(userId: string, token: string): Promise<APIResponse> {
   const context = await request.newContext({
-    baseURL: "https://conduit-api.bondaracademy.com",
+    baseURL: CONDUIT_URL,
   });
-  return await context.delete(`./account/user/${userId}`, {
+  return await context.delete(`./api/user/${userId}`, {
     headers: { Authorization: token },
   });
 }
 
-export default { postUser, deleteUser };
+interface LoginResponse {
+  user: {
+    token: string;
+  };
+}
+
+async function login(body: {
+  user: { email: string; password: string };
+}): Promise<LoginResponse> {
+  const context = await request.newContext({
+    baseURL: CONDUIT_URL,
+  });
+  const response: APIResponse = await context.post("./api/users/login", {
+    data: body,
+  });
+
+  // Assuming response.json() returns the actual body content
+  const responseBody = (await response.json()) as LoginResponse;
+  return responseBody;
+}
+
+export default { postUser, deleteUser, login };

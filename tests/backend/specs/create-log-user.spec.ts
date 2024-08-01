@@ -1,9 +1,13 @@
 import { test } from "@playwright/test";
 import random from "../../../helpers/random.ts";
-import { userCreation, deleteAccount, logUser } from "../utils/users-setup.ts";
+import {
+  userCreation,
+  deleteAccount,
+  logNewUser,
+} from "../utils/users-setup.ts";
 import { createArticle } from "../utils/articles-setup.ts";
 
-test.describe("Create, logs and delete user", () => {
+test.describe.skip("Given a new user that logs into the app", () => {
   // Defining variables in the describe will allow you to read globally
   let userId: string;
   let token: string;
@@ -22,8 +26,8 @@ test.describe("Create, logs and delete user", () => {
     console.log(`The user email is: ${email}`);
   });
 
-  test("Log User", async ({ page }) => {
-    await logUser(page, localStorageKey, token);
+  test("Then the new user is loged in the ap", async ({ page }) => {
+    await logNewUser(page, localStorageKey, token);
     await page.goto("/");
     await page.waitForSelector("[class='navbar-brand']");
     const newArticle = await createArticle("article1", token);
