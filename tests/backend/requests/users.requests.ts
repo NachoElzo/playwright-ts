@@ -1,14 +1,17 @@
 import { APIResponse, request } from "@playwright/test";
 import { CONDUIT_URL } from "../../../envconfig.ts";
 
-async function postUser(payload: object): Promise<APIResponse> {
+async function postUsers(payload: object): Promise<APIResponse> {
   const context = await request.newContext({ baseURL: CONDUIT_URL });
   return await context.post(`./api/users`, {
     data: payload,
   });
 }
 
-async function deleteUser(userId: string, token: string): Promise<APIResponse> {
+async function deleteUsers(
+  userId: string,
+  token: string
+): Promise<APIResponse> {
   const context = await request.newContext({
     baseURL: "https://conduit-api.bondaracademy.com",
   });
@@ -17,7 +20,7 @@ async function deleteUser(userId: string, token: string): Promise<APIResponse> {
   });
 }
 
-async function postLogValidUser(payload: object): Promise<APIResponse> {
+async function postUsersCredentials(payload: object): Promise<APIResponse> {
   const context = await request.newContext({
     baseURL: CONDUIT_URL,
   });
@@ -26,4 +29,4 @@ async function postLogValidUser(payload: object): Promise<APIResponse> {
   });
 }
 
-export default { postUser, deleteUser, postLogValidUser };
+export default { postUsers, deleteUsers, postUsersCredentials };

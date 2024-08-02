@@ -1,17 +1,24 @@
 export const users = [
   {
-    userName: "jotael",
-    email: "jotael@testmail.com",
-    password: "testjotael",
+    user1: {
+      userName: "jotael",
+      email: "jotael@testmail.com",
+      password: "testjotael",
+    },
   },
   {
-    userName: "alico",
-    email: "alico@testmail.com",
-    password: "testalico",
+    user2: {
+      userName: "alico",
+      email: "alico@testmail.com",
+      password: "testalico",
+    },
   },
+
   {
-    userName: "brunus",
-    email: "brunus@testmail.com",
-    password: "testbrunus",
+    user3: {
+      userName: "brunus",
+      email: "brunus@testmail.com",
+      password: "testbrunus",
+    },
   },
 ];

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import random from "../../../helpers/random.ts";
-import { createUser, deleteAccount, logNewUser } from "../utils/users.utils.ts";
+import { createUser, deleteUser, logUser } from "../utils/users.utils.ts";
 
 test.describe("Given a new user", () => {
   let userId: string;
@@ -20,7 +20,7 @@ test.describe("Given a new user", () => {
   });
 
   test("Log User", async ({ page }) => {
-    await logNewUser(page, localStorageKey, token);
+    await logUser(page, token);
     await page.goto("https://conduit.bondaracademy.com");
     await page.waitForTimeout(2000);
     console.log("login values: " + localStorageKey, token);
@@ -31,6 +31,6 @@ test.describe("Given a new user", () => {
   });
 
   test.afterAll("delete user", async () => {
-    await deleteAccount(userId, token);
+    await deleteUser(userId, token);
   });
 });
