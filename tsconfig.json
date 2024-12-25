@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2024", // Specifies the JavaScript version for the compiled code.
+    "module": "NodeNext", // Determines the module system for the compiled output (e.g., Node.js ES modules).
+    "moduleResolution": "nodenext", // Defines how the module loader resolves imports (e.g., Node.js ES module resolution).
+    "resolveJsonModule": true, // Allows importing JSON files directly into TypeScript modules.
+    "esModuleInterop": true, // Provides compatibility between CommonJS and ES modules.
+    "noImplicitAny": false, // Disallows variables of type `any` unless explicitly specified.
+    "forceConsistentCasingInFileNames": true, // Ensures consistent casing in file names across different operating systems.
+    "declaration": false, // Prevents generating declaration (.d.ts) files for the output.
+    "strict": true, // Enables all strict type-checking options for more robust code.
+    "outDir": "dist" // Specifies the output directory for compiled files.
+  }
+}
