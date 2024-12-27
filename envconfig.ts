@@ -1,7 +1,6 @@
 // Define an object that stores the URLs for UI and API environments
-
 const practice = {
-  UI: "https://practice.expandtesting.com/", // URL for the UI environment
+  UI: "https://practice.expandtesting.com", // URL for the UI environment
   API: "https://practice.expandtesting.com/notes/api/", // Update this to the correct API URL
 };
 

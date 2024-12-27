@@ -6,5 +6,5 @@ export function isMobile() {
   console.log(`Project name: `, projectName);
 
   // Check if the project name corresponds to a mobile environment
-  return projectName === "Mobile Chrome" || projectName === "Mobile Safari";
+  return projectName === "MobileChrome" || projectName === "MobileSafari";
 }
