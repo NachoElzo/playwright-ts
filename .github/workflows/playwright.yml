@@ -18,7 +18,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright back-end
-        run: ENVIRONMENT=API npx playwright test back-end/
+        run: PROJECT=backend ENVIRONMENT=API npx playwright test --project=backend
       - name: Run Playwright tests front-end
         run: ENVIRONMENT=UI npx playwright test front-end/
       - uses: actions/upload-artifact@v4

@@ -9,7 +9,7 @@ import getAllNotes from "../services/show-notes";
 import noteData from "../../../data/notes-data"; // Asegúrate de que noteData sea una función exportada
 import removeNote from "../services/remove-note";
 
-test.describe("Scenario new users that will create a note and delete the account", () => {
+test.describe("Scenario new users that will create a note and delete the account @api", () => {
   const userName = users.user1.name;
   const userEmail = users.user1.email;
   const userPassword = users.user1.password;

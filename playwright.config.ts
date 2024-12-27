@@ -24,27 +24,23 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 1280, height: 900 },
+      },
     },
-
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
 
     /* Test against mobile viewports. */
-    {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] },
-    },
     // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
+    //   name: "MobileChrome",
+    //   use: { ...devices["Pixel 5"] },
     // },
+    /* Back-end exclusive */
+    {
+      name: "backend",
+      use: { ...devices["Desktop Firefox"] },
+      grep: /@api/, //Grep' filters tests based on a regular expression.
+      //Add at the end of test description @api
+    },
   ],
 });

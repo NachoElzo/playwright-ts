@@ -18,33 +18,31 @@ function randomLastName() {
   return lastName;
 }
 const firstNames = [
-  "John",
-  "Jane",
+  "Rosamel",
   "Alex",
   "Chris",
-  "Sam",
   "Taylor",
   "Jordan",
-  "Pat",
   "Casey",
   "Morgan",
   "Jose",
   "Alicia",
   "Bruno",
+  "Marie",
 ];
 const lastNames = [
-  "Smith",
-  "Johnson",
-  "Brown",
   "Williams",
   "Jones",
   "Garcia",
+  "Fierro",
   "Martinez",
   "Miller",
   "Davis",
   "Lopez",
   "Elzo",
   "Correa",
+  "Merino",
+  "Jane",
 ];
 
 export default {
