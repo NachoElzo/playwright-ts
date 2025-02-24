@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023", "dom"], // Includes necessary libraries for modern JavaScript and DOM types.
+    "target": "ES2022", // Specifies the ECMAScript version for the output.
+    "module": "NodeNext", // Ensures compatibility with Node.js and ECMAScript modules.
+    "strict": true, // Enables all strict type-checking options for better code quality.
+    "moduleResolution": "nodenext", // Ensures better handling of both ESM and CommonJS modules.
+    "skipLibCheck": true, // Skips type checking of declaration files (improves compilation time).
+    "resolveJsonModule": true, // Allows importing JSON files as modules.
+    "esModuleInterop": true, // Ensures compatibility between CommonJS and ES Module code.
+    "experimentalDecorators": true, // Enables support for decorators, used in TypeScript.
+    "emitDecoratorMetadata": true, // Emits metadata for decorators, required by certain libraries like TypeORM.
+    "allowSyntheticDefaultImports": true, // Allows synthetic default imports from non-ESM modules.
+    "forceConsistentCasingInFileNames": true, // Ensures consistent file name casing, avoiding issues across platforms.
+    "outDir": "dist", // Specifies the output directory for compiled files.
+    "paths": {
+      // The following paths are aliases for commonly used directories in your project.
+      "@/*": ["./src/*"], // The '@' alias refers to the 'src' folder. For example, import { myFunction } from '@/utils/myFunction'
+      "@pages/*": ["./src/pages/*"], // The '@pages' alias points to the 'src/pages' folder. Use it like '@pages/homePage'.
+      "@operations/*": ["./src/operations/*"], // The '@operations' alias points to the 'src/operations' folder.
+      "@utils/*": ["./src/utils/*"], // The '@utils' alias is for 'src/utils' folder. Helps in importing utility functions easily.
+      "@fixtures/*": ["./src/fixtures/*"], // The '@fixtures' alias is used for importing mock data or test fixtures.
+      "@enums/*": ["./src/types/enums/*"], // The '@enums' alias points to the 'src/types/enums' folder for enum types.
+      "@interfaces/*": ["./src/types/interfaces/*"] // The '@interfaces' alias is for 'src/types/interfaces' for your TypeScript interfaces.
+    }
+  },
+  "exclude": ["node_modules"] // Excludes node_modules from being compiled.
+}
