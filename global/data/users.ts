@@ -1,20 +1,25 @@
 // Import random helper functions
-import random from "../utils/random";
+import {
+  randomName,
+  randomLastName,
+  randomDomain,
+  randomString,
+} from "../data/random";
 
-const userName = `${random.randomName()} ${random.randomLastName()}`;
-const userEmail = random.randomEmail();
+const userName = `${randomName()}${randomLastName()}`;
+const userEmail = `${userName}${randomDomain()}`;
 
 // Generate two users with random data
 const users = {
   user1: {
     name: userName,
     email: userEmail,
-    password: "password123",
+    password: randomString(),
   },
   user2: {
     name: userName,
     email: userEmail,
-    password: "password456",
+    password: randomString(),
   },
 };
 
