@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
+import { fileName } from "../../tests/bookstore/backend/specs/new-users-notes.spec";
 
-//File that create a new file and save the data obtained during a test execution
+//Utils for reate a new file and save the data obtained during a test execution
 
 // Interface that define and adjust the type of data that will be stored in the file
 interface UserData {
@@ -10,7 +11,10 @@ interface UserData {
 
 // Function for saving data to a file, data will be used as parameter to add multiple data
 function saveUserData(data: UserData) {
-  const filePath = path.resolve(__dirname, "../data/test-data-file.json");
+  const filePath = path.resolve(
+    __dirname,
+    `../data/test-ouputs/${fileName}.json`
+  );
 
   // Validates  that the directory exists
   if (!fs.existsSync(path.dirname(filePath))) {
@@ -44,7 +48,10 @@ function saveUserData(data: UserData) {
 
 // Function to delete the file added in global-setup file
 function deleteFile() {
-  const filePath = path.resolve(__dirname, "../data/test-data-file.json");
+  const filePath = path.resolve(
+    __dirname,
+    `../data/test-ouputs/${fileName}.json`
+  );
 
   // Check if the file exists and delete it
   if (fs.existsSync(filePath)) {
