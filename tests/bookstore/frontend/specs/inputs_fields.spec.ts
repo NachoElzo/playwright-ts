@@ -1,22 +1,26 @@
 import { test } from "@playwright/test";
 import urls from "../../../../global/data/urls";
 import { Inputs } from "../pages/inputs_fields";
+import { randomString, randomNumber } from "../../../../global/data/random";
 
-test.describe("Giving users that navigates to the inputs page", () => {
+test.describe("User are able to fill the form and validate data types", () => {
+  let inputs: Inputs;
+
   test.beforeEach(async ({ page }) => {
+    inputs = new Inputs(page);
     await page.goto(`${urls.ui.bookstore}/inputs`);
   });
 
-  test("User will fill the input with numbers type", async ({ page }) => {
-    const inputs = new Inputs(page);
-    // Fills the input with a number and simulates pressing the arrow a specified number of times.
-    // The function will break if the number of presses exceeds 5 allowing 5 times at max.
-    console.log(
-      `You number in the input field will be ${await inputs.inputNumber(
-        64,
-        14
-      )}`
-    );
-    await inputs.inputText();
+  test("Users can fill the form with valid values", async () => {
+    // Enter a number and increment it with arrow up.
+    await inputs.inputNumber(randomNumber(), 3);
+    await inputs.inputText(`${randomString()}`, ` -  ${randomString()}`);
+    await inputs.inputPassword(randomString());
+    await inputs.setFutureDate(7);
+    await test.step("Verify outputs values match filled inputs", async () => {
+      await inputs.clickDisplay();
+      await inputs.validateInputs();
+      await inputs.clickCleanInputs();
+    });
   });
 });
